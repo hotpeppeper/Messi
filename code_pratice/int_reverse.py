@@ -6,11 +6,11 @@ def int_reverse(i):
     while abs_i != 0:
         res = res * 10 + abs_i % 10
         abs_i //= 10
-        if res > boud:
+        if res > abs(boud):
             return 0
     return res if i > 0 else -res
 
 print(int_reverse(123))
-print(int_reverse(1234567890))
+print(int_reverse(-123456888890))
 print(int_reverse(987))
-print(int_reverse(123765))
+print(int_reverse(1237888888865))
