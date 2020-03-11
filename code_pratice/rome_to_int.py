@@ -26,3 +26,5 @@ if __name__ == "__main__":
     strs = ['III', 'IV', 'IX', 'LVIII', 'MCMXCIV']
     for s in strs:
         print(roman_to_int(s))
+
+    # output 3,4,9,58,1994
