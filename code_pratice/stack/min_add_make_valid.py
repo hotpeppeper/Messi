@@ -17,6 +17,11 @@ def min_add_make_valid(S):
                 stack_.append(s)
     return len(stack_)
 
+def min_add_make_valid2(S):
+    while '()' in S:
+        S=S.replace('()','')
+    return len(S)
+
 ss = ['())', '(((', '()', '()))((']
 for s in ss:
     print(min_add_make_valid(s))
