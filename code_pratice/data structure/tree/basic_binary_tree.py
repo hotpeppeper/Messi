@@ -1,3 +1,6 @@
+from collections import deque
+
+
 class Node(object):
     def __init__(self, data):
         self.data = data
@@ -13,7 +16,7 @@ def in_order(tree):
     print(tree.data)
 
     if tree.right:
-        in_order(tree.left)
+        in_order(tree.right)
 
     return
 
@@ -56,6 +59,18 @@ def tree_depth(tree):
         else:
             return right_depth + 1
 
+def dfs(tree):
+    if not tree:
+        return
+    s = deque()
+    s.append(tree)
+    while len(s) != 0:
+        cur = s.popleft()
+        print(cur.data)
+        if cur.left:
+            s.append(cur.left)
+        if cur.right:
+            s.append(cur.right)
 
 if __name__ == "__main__":
     tree = Node(1)
@@ -78,5 +93,8 @@ if __name__ == "__main__":
     post_order(tree)
 
     print('tree depth: ',tree_depth(tree))
+
+    print('dfs')
+    dfs(tree)
         
     
