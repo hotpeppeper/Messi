@@ -52,6 +52,26 @@ class BinarySearchTree(object):
                 node = node.left if node.value > value else node.right
         return node
 
+    def get_max(self, node=None):
+        if node is None:
+            return self.root
+        if not self.empty():
+            while node.rigth is not None:
+                node = node.right
+        return node
+
+    def get_min(self, node=None):
+        if node is None:
+            return self.root
+
+        if not self.empty():
+            while node.left is not None:
+                node = node.left
+
+        return node
+
+
+
     
                 
     
