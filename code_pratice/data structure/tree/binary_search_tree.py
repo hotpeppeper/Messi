@@ -43,6 +43,15 @@ class BinarySearchTree(object):
             self.insert(value)
         return self
 
+    def search(self, value):
+        if self.empty():
+            raise IndexError('Warning: trere is empty')
+        else:
+            node = self.root
+            while node is not None and node.value != value:
+                node = node.left if node.value > value else node.right
+        return node
+
     
                 
     
