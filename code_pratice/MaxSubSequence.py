@@ -18,7 +18,14 @@ def max_subsequence(seq):
             max_start = i + 1
     return max_val, (max_start, max_end)
 
+class Solution:
+    def maxSubArray(self, nums: List[int]) -> int:
+        for i in range(1, len(nums)):
+            nums[i] += max(nums[i - 1], 0)
+        return max(nums)
+
 
 list_a = [1, -2, 4, -6, 50, -4, -4, -10, -20, 40, -1, -2, -4, -1, -5, -1]
-a, b = max_subsequence(list_a)
+list_b = [-2,1,-3,4,-1,2,1,-5,4]
+a, b = max_subsequence(list_b)
 print(a, b)
