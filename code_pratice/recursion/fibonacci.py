@@ -16,6 +16,16 @@ def fibonacci_dp(n):
         fib[i] = fib[i-1] + fib[i-2]
     return fib[n]
 
-print(fibonacci_dp(6))
-print(fibonacci(6))
+def fibonacci_dp2(n):
+    if n <= 1:
+        return 1
+    pre = cur = 1
+    for i in range(3, n+1):
+        tmp = cur + pre
+        pre = cur
+        cur = tmp
+    return cur
+
+print(fibonacci_dp2(10))
+print(fibonacci(10))
 print(fib_table)
