@@ -31,6 +31,30 @@ class PalindromeCenterSpread:
                 max_len = len(palin)
         return res
 
+
+def longest_palindrome(s):
+    def _center_spread(left, right):
+        while left >= 0 and right < len(s) and s[left] == s[right]:
+            left -= 1
+            right += 1
+        return left + 1, right - 1
+
+    if len(s) < 2:
+        return s
+    start, end = 0, 0
+    for i in range(len(s)):
+        left1, right1 = _center_spread(i, i)
+        left2, right2 = _center_spread(i, i + 1)
+        if right1 - left1 > end - start:
+            start = left1
+            end = right1
+        if right2 - left2 > end - start:
+            start = left2
+            end = right2
+    print(start, end)
+    return s[start: end+1]
+
 if __name__ == "__main__":
     pc = PalindromeCenterSpread('abcba')
     print(pc.longest_palindrome())
+    print(longest_palindrome('abcba'))
