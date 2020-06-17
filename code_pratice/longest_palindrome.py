@@ -54,6 +54,21 @@ def longest_palindrome(s):
     print(start, end)
     return s[start: end+1]
 
+def countSubstrings(s: str) -> int:
+        
+    def _center(left, right):
+        res = 0
+        while left >=0 and right < len(s) and s[left] == s[right]:
+            res += 1
+            left -= 1
+            right += 1
+        return res
+    res = 0
+    for i in range(len(s)):
+        res += _center(i,i)
+        res += _center(i, i+1)
+    return res
+
 if __name__ == "__main__":
     pc = PalindromeCenterSpread('abcba')
     print(pc.longest_palindrome())
