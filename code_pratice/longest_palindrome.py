@@ -55,7 +55,6 @@ def longest_palindrome(s):
     return s[start: end+1]
 
 def countSubstrings(s: str) -> int:
-        
     def _center(left, right):
         res = 0
         while left >=0 and right < len(s) and s[left] == s[right]:
